@@ -4,12 +4,12 @@ import frc.robot.base.commands.CommandBase;
 import frc.robot.base.subsystems.SubsystemJoystick;
 import frc.robot.superclasses.Command5800;
 
-public class CommandDrive extends Command5800 {
+public class CommandDriver extends Command5800 {
 
 	double arcadeSpeed, arcadeRotation;
 	double minR = 0.4D, difR = 0.5D;
 	
-	public CommandDrive() {	
+	public CommandDriver() {	
 		super(CommandBase.driver);
 	}
 

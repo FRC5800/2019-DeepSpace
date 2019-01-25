@@ -9,24 +9,22 @@ package frc.robot;
 public class RobotMap {
 	/* PWMs (0 - 9) */
 	public static final int 
-	DRIVE_MOTOR_FR_ID = 2, 
+	DRIVE_MOTOR_FR_ID = 2,
 	DRIVE_MOTOR_FL_ID = 0, 
 	DRIVE_MOTOR_RR_ID = 3, 
 	DRIVE_MOTOR_RL_ID = 1,
-	ELEVATOR_MOTOR_ID = 5, 
-	INTAKE_MOTOR_1_ID = 6, 
-	INTAKE_MOTOR_2_ID = 7;
+	ARM_MOTOR_ID = 8,
+	CARGO_MOTOR_LEFT_ID = 4,
+	CARGO_MOTOR_RIGHT_ID = 5;
 
 	/* Solenoid (0 - 7) */
 	public static final int 
-	SOLENOID_ID = 2; // Just an example
+	HATCH_SOLENOID_ID = 0;
 
 	/* Digital I/Os (0 - 9) */
-	public static final int 
-	DRIVE_ENCODER_R1_ID = 1, 
-	DRIVE_ENCODER_R2_ID = 2, 
-	DRIVE_ENCODER_L1_ID = 0,
-	DRIVE_ENCODER_L2_ID = 3, 
-	ELEVATOR_LIMIT_TOP_ID = 4, 
-	ELEVATOR_LIMIT_BOTTOM_ID = 5;
+	public static final int
+	DRIVE_ENCODER_R1_ID = 0, 
+	DRIVE_ENCODER_R2_ID = 1, 
+	DRIVE_ENCODER_L1_ID = 2,
+	DRIVE_ENCODER_L2_ID = 3;
 }

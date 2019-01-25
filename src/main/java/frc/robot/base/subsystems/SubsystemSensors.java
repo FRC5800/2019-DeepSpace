@@ -1,6 +1,9 @@
 package frc.robot.base.subsystems;
 
-import static frc.robot.RobotMap.*;
+import static frc.robot.RobotMap.DRIVE_ENCODER_L1_ID;
+import static frc.robot.RobotMap.DRIVE_ENCODER_L2_ID;
+import static frc.robot.RobotMap.DRIVE_ENCODER_R1_ID;
+import static frc.robot.RobotMap.DRIVE_ENCODER_R2_ID;
 
 import frc.robot.base.util.Converter;
 import frc.robot.superclasses.Subsystem5800;

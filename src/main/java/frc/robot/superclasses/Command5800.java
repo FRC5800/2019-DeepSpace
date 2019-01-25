@@ -4,6 +4,7 @@ import frc.robot.Robot;
 import frc.robot.base.commands.CommandBase;
 
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.command.Subsystem;
 
 public abstract class Command5800 extends CommandBase {
 	// Command to run when this command is started
@@ -17,7 +18,7 @@ public abstract class Command5800 extends CommandBase {
 	private boolean isWhileHeld = false;
 	private Button button;
 
-	public Command5800(Subsystem5800 requiredSystem) {
+	public Command5800(Subsystem requiredSystem) {
 		super();
 		if (requiredSystem != null)
 			requires(requiredSystem);

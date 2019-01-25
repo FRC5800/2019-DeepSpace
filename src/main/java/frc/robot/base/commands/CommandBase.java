@@ -6,7 +6,6 @@ import frc.robot.OI;
 import frc.robot.base.commands.generic.CommandUpdateSensors;
 import frc.robot.base.subsystems.*;
 import frc.robot.superclasses.Subsystem5800;
-import frc.robot.base.commands.drive.*;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -23,10 +22,12 @@ public abstract class CommandBase extends Command {
 	public static SubsystemSensors sensors = new SubsystemSensors();
 	public static SubsystemJoystick joystick = new SubsystemJoystick();
 	public static SubsystemDriver driver = new SubsystemDriver();
+	public static SubsystemLift lift = new SubsystemLift();
+	public static SubsystemHatchIntake hatchIntake = new SubsystemHatchIntake();
+	public static SubsystemCargoIntake cargoIntake = new SubsystemCargoIntake();
 
 	public static void init() {
 		sensors.setDefCommand(new CommandUpdateSensors());
-		driver.setDefCommand(new CommandDrive());
 
 		// Don't move or change this. EVER.
 		oi = new OI();
