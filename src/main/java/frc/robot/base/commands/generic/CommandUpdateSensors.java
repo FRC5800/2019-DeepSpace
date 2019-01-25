@@ -13,7 +13,6 @@ public class CommandUpdateSensors extends Command5800 {
 
 	@Override
 	protected void execute() {
-		SmartDashboard.putBoolean("Top Limit Switch", sensors.getElevatorLimit('T'));
 		SmartDashboard.putNumber("Gyro", CommandBase.sensors.getChassiAngle());
 		SmartDashboard.putNumber("Distance Encoder L",
 				Converter.convertEncoder(CommandBase.sensors.getChassiPulses('L'), 'P'));

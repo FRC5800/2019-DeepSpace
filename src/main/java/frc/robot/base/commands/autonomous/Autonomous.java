@@ -1,6 +1,5 @@
 package frc.robot.base.commands.autonomous;
 
-import frc.robot.base.commands.autonomous.routines.CommandMoveTime;
 import frc.robot.superclasses.Command5800;
 
 public class Autonomous extends Command5800 {
@@ -25,6 +24,6 @@ public class Autonomous extends Command5800 {
 
 	public static void initAutonomous() {
 		autonomous[0] = new Autonomous();
-		autonomous[1] = (Autonomous) new Autonomous().setSequential(new CommandMoveTime(0.5, 3));
+		//autonomous[1] = (Autonomous) new Autonomous().setSequential(new CommandMoveTime(0.5, 3));
 	}
 }
