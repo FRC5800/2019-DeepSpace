@@ -10,11 +10,11 @@ public class CommandDriverPosition extends Command5800 {
 		super(driver);
 		this.targetPosition = targetPosition;
 	}
-
+	
 	public void onStart() {
 		CommandBase.sensors.reset();
 		CommandBase.driver.positionPID(this.targetPosition);
-		CommandBase.driver.off();
+		CommandBase.driver.on();
 	} 
 
 	protected void execute() {

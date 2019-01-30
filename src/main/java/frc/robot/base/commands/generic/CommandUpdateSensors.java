@@ -14,14 +14,8 @@ public class CommandUpdateSensors extends Command5800 {
 	@Override
 	protected void execute() {
 		SmartDashboard.putNumber("Gyro", CommandBase.sensors.getChassiAngle());
-		SmartDashboard.putNumber("Distance Encoder L",
-				Converter.convertEncoder(CommandBase.sensors.getChassiPulses('L'), 'P'));
-		SmartDashboard.putNumber("Speed Encoder L",
-				Converter.convertEncoder(CommandBase.sensors.getChassiSpeed('L'), 'P'));
-		SmartDashboard.putNumber("Distance Encoder R",
-				Converter.convertEncoder(CommandBase.sensors.getChassiPulses('R'), 'P'));
-		SmartDashboard.putNumber("Speed Encoder R",
-				Converter.convertEncoder(CommandBase.sensors.getChassiSpeed('R'), 'P'));
+		SmartDashboard.putNumber("Distance Encoder L", CommandBase.sensors.driveEncoderL.getRaw() * Math.PI * 15 / 144000);
+		SmartDashboard.putNumber("Distance Encoder R", CommandBase.sensors.driveEncoderR.getRaw() * Math.PI * 15 / 144000);
 	}
 
 	@Override

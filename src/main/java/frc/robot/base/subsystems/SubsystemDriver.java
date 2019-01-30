@@ -26,25 +26,29 @@ public class SubsystemDriver extends Subsystem5800 {
 	private SpeedControllerGroup gearLeft = new SpeedControllerGroup(motorFrontLeft, motorRearLeft){
 		@Override
 		public void pidWrite(double output){
-			switch (sensorLeft.mode){
-				case kPosition: this.set(output);
-				case kAngle: this.set(output);
-				case kRate: this.set(this.get() + output);
+			if (sensorLeft.mode == PIDType.kPosition){
+				this.set(output);
+			} else if (sensorLeft.mode == PIDType.kRate){
+				this.set(this.get() + output);
+			} else {
+				this.set(0);
 			}
 		}
 	};
 	public SpeedControllerGroup gearRight = new SpeedControllerGroup(motorFrontRight, motorRearRight){
 		@Override
 		public void pidWrite(double output){
-			switch (sensorRight.mode){
-				case kPosition: this.set(output);
-				case kAngle: this.set(-output);
-				case kRate: this.set(this.get() + output);
+			if (sensorRight.mode == PIDType.kPosition){
+				this.set(output);
+			} else if (sensorRight.mode == PIDType.kRate){
+				this.set(this.get() + output);
+			} else {
+				this.set(0);
 			}
 		}
 	};
 
-	private PIDController controllerLeft = new PIDController(0.5, 0.0, 0.0, 
+	public PIDController controllerLeft = new PIDController(0.5, 0.0, 0.0, 
 	sensorLeft, this.gearLeft);
 	
 	private PIDController controllerRight = new PIDController(0.5, 0.0, 0.0, 
@@ -52,19 +56,21 @@ public class SubsystemDriver extends Subsystem5800 {
 
 	public SubsystemDriver() {
 		super();
-		gearLeft.setInverted(true);
-		gearRight.setInverted(false);
+		gearLeft.setInverted(false);
+		gearRight.setInverted(true);
 
-		sensorLeft.inPhase(-1);
-		sensorRight.inPhase(1);
+		sensorLeft.inPhase(1);
+		sensorRight.inPhase(-1);
 
 		controllerLeft.disable();
 		controllerLeft.setOutputRange(-1.0, 1.0);
 		controllerLeft.setName("controllerLeft");
-
+		controllerLeft.setAbsoluteTolerance(0.2);
+		
 		controllerRight.disable();
 		controllerRight.setOutputRange(-1.0, 1.0);
 		controllerRight.setName("controllerRight");
+		controllerRight.setAbsoluteTolerance(0.2);
 	}
 
 	public void setGains(Gains gains){
@@ -113,6 +119,7 @@ public class SubsystemDriver extends Subsystem5800 {
 	}
 
 	public boolean onTarget(){
-		return controllerLeft.onTarget() || controllerRight.onTarget();
+		//return Math.abs(controllerLeft.getSetpoint() - sensorLeft.pidGet()) < Math.abs(controllerLeft.getSetpoint() * 10 / 100);
+		return controllerLeft.onTarget() && controllerRight.onTarget();
 	}
 }
