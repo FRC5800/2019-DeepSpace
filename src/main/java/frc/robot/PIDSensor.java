@@ -47,9 +47,9 @@ public class PIDSensor implements PIDSource {
     @Override
     public double pidGet(){
         switch (mode){
-            case kPosition: return e_sensor.getRaw()*this.inPhase*c/144000 ;
-            case kAngle: return g_sensor.getAngle();
-            case kRate: return e_sensor.getRate()*this.inPhase*c/360;
+            case kPosition: return e_sensor.getRaw()*this.inPhase*c/144000;
+            case kAngle: return e_sensor.getRaw()*this.inPhase*c/144000;
+            case kRate: return e_sensor.getRate()*this.inPhase;
             default: return 0.0;
         }
     }

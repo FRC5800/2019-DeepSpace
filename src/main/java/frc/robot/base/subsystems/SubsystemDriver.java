@@ -23,13 +23,15 @@ public class SubsystemDriver extends Subsystem5800 {
 	private PIDSensor sensorLeft = new PIDSensor(CommandBase.sensors.driveEncoderL, CommandBase.sensors.gyro);
 	private PIDSensor sensorRight = new PIDSensor(CommandBase.sensors.driveEncoderR, CommandBase.sensors.gyro);
 
-	private SpeedControllerGroup gearLeft = new SpeedControllerGroup(motorFrontLeft, motorRearLeft){
+	public SpeedControllerGroup gearLeft = new SpeedControllerGroup(motorFrontLeft, motorRearLeft){
 		@Override
 		public void pidWrite(double output){
 			if (sensorLeft.mode == PIDType.kPosition){
 				this.set(output);
 			} else if (sensorLeft.mode == PIDType.kRate){
 				this.set(this.get() + output);
+			} else if (sensorRight.mode == PIDType.kAngle){
+				this.set(output);
 			} else {
 				this.set(0);
 			}
@@ -42,6 +44,8 @@ public class SubsystemDriver extends Subsystem5800 {
 				this.set(output);
 			} else if (sensorRight.mode == PIDType.kRate){
 				this.set(this.get() + output);
+			} else if (sensorRight.mode == PIDType.kAngle){
+				this.set(-output);
 			} else {
 				this.set(0);
 			}
@@ -50,7 +54,6 @@ public class SubsystemDriver extends Subsystem5800 {
 
 	public PIDController controllerLeft = new PIDController(0.5, 0.0, 0.0, 
 	sensorLeft, this.gearLeft);
-	
 	private PIDController controllerRight = new PIDController(0.5, 0.0, 0.0, 
 	sensorRight, this.gearRight);
 
@@ -65,12 +68,12 @@ public class SubsystemDriver extends Subsystem5800 {
 		controllerLeft.disable();
 		controllerLeft.setOutputRange(-1.0, 1.0);
 		controllerLeft.setName("controllerLeft");
-		controllerLeft.setAbsoluteTolerance(0.2);
+		controllerLeft.setAbsoluteTolerance(0.05);
 		
 		controllerRight.disable();
 		controllerRight.setOutputRange(-1.0, 1.0);
 		controllerRight.setName("controllerRight");
-		controllerRight.setAbsoluteTolerance(0.2);
+		controllerRight.setAbsoluteTolerance(0.05);
 	}
 
 	public void setGains(Gains gains){
@@ -90,6 +93,8 @@ public class SubsystemDriver extends Subsystem5800 {
 
 	public void positionPID(double setpoint) {
 		setPIDMode(PIDType.kPosition);
+		gearRight.setInverted(true);
+		sensorRight.inPhase(-1);
 		setGains(RobotParameters.positionGains);
 		setSetpoint(setpoint);
 	}
@@ -104,6 +109,7 @@ public class SubsystemDriver extends Subsystem5800 {
 
 	public void anglePID(double setpoint){
 		setPIDMode(PIDType.kAngle);
+		sensorRight.inPhase(1);
 		setGains(RobotParameters.angleGains);
 		setSetpoint(setpoint);
 	}
@@ -119,7 +125,6 @@ public class SubsystemDriver extends Subsystem5800 {
 	}
 
 	public boolean onTarget(){
-		//return Math.abs(controllerLeft.getSetpoint() - sensorLeft.pidGet()) < Math.abs(controllerLeft.getSetpoint() * 10 / 100);
 		return controllerLeft.onTarget() && controllerRight.onTarget();
 	}
 }

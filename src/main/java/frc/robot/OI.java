@@ -17,5 +17,6 @@ public class OI {
 		//CommandBase.joystick.whenHeld(SubsystemJoystick.d_RT, new CommandCargoIntake(0.4, false));
 		CommandBase.joystick.whenPressed(SubsystemJoystick.d_A, new CommandDriverPosition(5));
 		CommandBase.joystick.whenPressed(SubsystemJoystick.d_B, new CommandReset());
+		CommandBase.joystick.whenPressed(SubsystemJoystick.d_X, new CommandDriverAngle(90));
 	}
 }
