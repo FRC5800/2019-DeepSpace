@@ -49,7 +49,7 @@ public class PIDSensor implements PIDSource {
         switch (mode){
             case kPosition: return e_sensor.getRaw()*this.inPhase*c/144000;
             case kAngle: return e_sensor.getRaw()*this.inPhase*c/144000;
-            case kRate: return e_sensor.getRate()*this.inPhase;
+            case kRate: return e_sensor.getRate()*this.inPhase*c/36000;
             default: return 0.0;
         }
     }

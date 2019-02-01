@@ -98,10 +98,11 @@ public class SubsystemDriver extends Subsystem5800 {
 		setGains(RobotParameters.positionGains);
 		setSetpoint(setpoint);
 	}
-
+	
 	public void velocityPID(double setpoint, double turn){
 		setPIDMode(PIDType.kRate);
-		setpoint *= 360/(Math.PI*WHEEL_DIAMETER);
+		gearRight.setInverted(true);
+		sensorRight.inPhase(-1);
 		setGains(RobotParameters.rateGains);
 		controllerLeft.setSetpoint(setpoint + turn);
 		controllerRight.setSetpoint(setpoint - turn);
@@ -112,6 +113,11 @@ public class SubsystemDriver extends Subsystem5800 {
 		sensorRight.inPhase(1);
 		setGains(RobotParameters.angleGains);
 		setSetpoint(setpoint);
+	}
+
+	public void tankDrive(double _spLeft, double _spRight){
+		gearLeft.set(_spLeft);
+		gearRight.set(_spRight);
 	}
 
 	public void off(){
