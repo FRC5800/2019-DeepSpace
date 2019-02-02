@@ -17,7 +17,9 @@ public class CommandReset extends Command5800 {
 
 	protected void onCompletion() {
 		sensors.reset();
-		
+		driver.off();
+		driver.gearLeft.set(0);
+		driver.gearRight.set(0);
 	}
 
 }

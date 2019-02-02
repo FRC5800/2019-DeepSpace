@@ -22,6 +22,7 @@ public class PIDSensor implements PIDSource {
     private ADXRS450_Gyro g_sensor;
     private int inPhase = 1;
     private PIDSourceType type = PIDSourceType.kRate;
+    private double c = Math.PI * 15;
     public PIDType mode = PIDType.kPosition;
 
     public PIDSensor(Encoder sensor1, ADXRS450_Gyro sensor2){
@@ -46,9 +47,9 @@ public class PIDSensor implements PIDSource {
     @Override
     public double pidGet(){
         switch (mode){
-            case kPosition: return e_sensor.getRaw()*this.inPhase;
-            case kAngle: return g_sensor.getAngle()*this.inPhase;
-            case kRate: return e_sensor.getRate()*this.inPhase;
+            case kPosition: return e_sensor.getRaw()*this.inPhase*c/144000;
+            case kAngle: return e_sensor.getRaw()*this.inPhase*c/144000;
+            case kRate: return e_sensor.getRate()*this.inPhase*c/36000;
             default: return 0.0;
         }
     }

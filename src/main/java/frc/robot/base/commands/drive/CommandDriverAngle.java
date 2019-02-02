@@ -11,13 +11,12 @@ public class CommandDriverAngle extends Command5800 {
 	public CommandDriverAngle(double angleTarget) {
 		super(driver);
 		
-		this.dist = (( Math.PI / 180 ) * angleTarget);
-		this.angle = angleTarget;
+		this.dist = ((Math.PI * 71 / 36000 ) * angleTarget);
 	}
 
 	public void onStart() {
 		CommandBase.sensors.reset();
-		CommandBase.driver.anglePID(this.angle);
+		CommandBase.driver.anglePID(this.dist);
 		CommandBase.driver.on();
 	}
 
