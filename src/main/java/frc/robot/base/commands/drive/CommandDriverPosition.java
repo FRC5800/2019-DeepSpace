@@ -22,10 +22,11 @@ public class CommandDriverPosition extends Command5800 {
 	}
 
 	protected boolean isDone() {
-		return CommandBase.driver.onTarget();
+		return CommandBase.driver.onTarget() || sensors.resetPID;
 	}
 
 	protected void onCompletion() {
 		CommandBase.driver.off();
+		sensors.resetPID = false;
 	}
 }

@@ -17,6 +17,7 @@ public class SubsystemSensors extends Subsystem5800 {
 	public Encoder driveEncoderL = new Encoder(DRIVE_ENCODER_L1_ID, DRIVE_ENCODER_L2_ID);
 	public boolean complete;
 	public boolean velocityPID;
+	public boolean resetPID;
 
 	public void init() {
 		this.gyro.reset();

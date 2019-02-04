@@ -1,7 +1,9 @@
 package frc.robot;
 
+import static frc.robot.base.util.Path.*;
 //import frc.robot.base.commands.autonomous.Autonomous;
 import frc.robot.base.commands.teleoperated.*;
+import frc.robot.base.commands.autonomous.*;
 import frc.robot.base.commands.drive.*;
 import frc.robot.base.commands.CommandBase;
 import frc.robot.base.subsystems.SubsystemJoystick;
@@ -21,6 +23,7 @@ public class OI {
 		CommandBase.joystick.whenPressed(SubsystemJoystick.d_Y, new CommandDriverVelocity(1, 1.5));
 		CommandBase.joystick.whenPressed(SubsystemJoystick.d_POV_U, new CommandDriverVelocity(0, 0));
 		CommandBase.joystick.whenPressed(SubsystemJoystick.d_POV_D, new CommandDriverVelocity(1.5, 2));
+		CommandBase.joystick.whenPressed(SubsystemJoystick.d_RT, new CommandFollowPath(P_CARGOBAY_1, 2));
 
 	}
 }

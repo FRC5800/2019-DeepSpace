@@ -23,11 +23,12 @@ public class CommandDriverAngle extends Command5800 {
 	protected void execute() {}
 
 	protected boolean isDone() {
-		return CommandBase.driver.onTarget(); 
+		return CommandBase.driver.onTarget() || sensors.resetPID;
 	}
 
 	protected void onCompletion() {
 		CommandBase.driver.off();
+		sensors.resetPID = false;
 	}
 
 }

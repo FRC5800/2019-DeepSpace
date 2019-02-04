@@ -79,6 +79,11 @@ public class SubsystemDriver extends Subsystem5800 {
 		controllerLeft.setPID(gains.kP, gains.kI, gains.kD, gains.kF);
 		controllerRight.setPID(gains.kP, gains.kI, gains.kD, gains.kF);
 	}
+
+	public void setGains(Gains gainsL, Gains gainsR){
+		controllerLeft.setPID(gainsL.kP, gainsL.kI, gainsL.kD, gainsL.kF);
+		controllerRight.setPID(gainsR.kP, gainsR.kI, gainsR.kD, gainsR.kF);
+	}
 	
 	public void setPIDMode(PIDType type){
 		sensorLeft.mode = type;
@@ -102,7 +107,7 @@ public class SubsystemDriver extends Subsystem5800 {
 		setPIDMode(PIDType.kRate);
 		gearRight.setInverted(true);
 		sensorRight.inPhase(-1);
-		setGains(RobotParameters.rateGains);
+		setGains(RobotParameters.leftRateGains, RobotParameters.rightRateGains);
 		controllerLeft.setSetpoint(left);
 		controllerRight.setSetpoint(right);
 	}

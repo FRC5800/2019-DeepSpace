@@ -9,6 +9,13 @@
       "name": "CodeLens (Launch) - Path",
       "request": "launch",
       "mainClass": "frc.robot.base.util.Path",
+      "projectName": "FRC5800 - 2019 Code"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - Path",
+      "request": "launch",
+      "mainClass": "frc.robot.base.util.Path",
       "projectName": "2019-DeepSpace"
     },
     {

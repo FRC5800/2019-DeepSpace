@@ -9,9 +9,7 @@ public class Path {
     
     private static double[][] p_cb_1 = {
         {0, 2},
-        {3, 2},
-        {8, 11},
-        {12, 11}
+        {2, 2}
     };
 
     public static final FalconPathPlanner[] _paths = {new FalconPathPlanner(p_cb_1)};
@@ -22,7 +20,7 @@ public class Path {
     }
 
     public static void main(String args[]){
-        _paths[P_CARGOBAY_1].calculate(11, 0.1, 2.4);
+        _paths[P_CARGOBAY_1].calculate(2, 0.1, 2.4);
 
         if(!GraphicsEnvironment.isHeadless()){
             FalconLinePlot fig2 = new FalconLinePlot(_paths[P_CARGOBAY_1].smoothCenterVelocity,null,Color.blue);

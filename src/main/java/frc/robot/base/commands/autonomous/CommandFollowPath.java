@@ -24,17 +24,18 @@ public class CommandFollowPath extends Command5800{
     }
 
     protected void execute(){
-        currentTime = (int)Math.floor(Timer.getFPGATimestamp() - initTime) * 10;
+        currentTime = (int)((Timer.getFPGATimestamp() - initTime) * 10);
         double _leftSpeed = falconPath.smoothLeftVelocity[currentTime][1];
         double _rightSpeed = falconPath.smoothRightVelocity[currentTime][1];
         driver.velocityPID(_leftSpeed, _rightSpeed);
     }
 
     protected boolean isDone(){
-        return currentTime == falconPath.smoothCenterVelocity.length && driver.onTarget();
+        return sensors.resetPID || currentTime == falconPath.smoothCenterVelocity.length-1;
     }
 
     protected void onCompletion(){
         driver.off();
+        sensors.resetPID = false;
     }
 }

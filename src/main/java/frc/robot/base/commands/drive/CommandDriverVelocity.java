@@ -23,10 +23,11 @@ public class CommandDriverVelocity extends Command5800 {
     protected void execute() {}
 
     protected boolean isDone() {
-		return CommandBase.sensors.velocityPID; 
+		return CommandBase.sensors.velocityPID || sensors.resetPID;
     }
     
 	protected void onCompletion() {
-		CommandBase.driver.off();
+        CommandBase.driver.off();
+        sensors.resetPID = false;
 	}
 }

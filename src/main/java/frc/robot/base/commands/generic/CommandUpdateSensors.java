@@ -15,9 +15,12 @@ public class CommandUpdateSensors extends Command5800 {
 
 	@Override
 	protected void onStart(){
-		SmartDashboard.putNumber("kP", RobotParameters.rateGains.kP);
-		SmartDashboard.putNumber("kI", RobotParameters.rateGains.kI);
-		SmartDashboard.putNumber("kD", RobotParameters.rateGains.kD);
+		SmartDashboard.putNumber("lP", RobotParameters.leftRateGains.kP);
+		SmartDashboard.putNumber("lI", RobotParameters.leftRateGains.kI);
+		SmartDashboard.putNumber("lD", RobotParameters.leftRateGains.kD);
+		SmartDashboard.putNumber("rP", RobotParameters.rightRateGains.kP);
+		SmartDashboard.putNumber("rI", RobotParameters.rightRateGains.kI);
+		SmartDashboard.putNumber("rD", RobotParameters.rightRateGains.kD);
 		SmartDashboard.putBoolean("VelocityPID", CommandBase.sensors.velocityPID);
 	}
 
@@ -27,12 +30,16 @@ public class CommandUpdateSensors extends Command5800 {
 		SmartDashboard.putNumber("Distance Encoder L", CommandBase.sensors.driveEncoderL.getRaw() * Math.PI * 15 / 144000);
 		SmartDashboard.putNumber("Distance Encoder R", CommandBase.sensors.driveEncoderR.getRaw() * Math.PI * 15 / 144000);
 		SmartDashboard.putNumber("Error", CommandBase.driver.controllerLeft.getError());
-		SmartDashboard.putNumber("Speed", CommandBase.sensors.driveEncoderR.getRate()*Math.PI*15/360);
+		SmartDashboard.putNumber("Speed Right", CommandBase.sensors.driveEncoderR.getRate()*Math.PI*15/36000);
+		SmartDashboard.putNumber("Speed Left", CommandBase.sensors.driveEncoderL.getRate()*Math.PI*15/36000);
 		SmartDashboard.putBoolean("VelocityPID", CommandBase.sensors.velocityPID);
 
-		RobotParameters.rateGains.kP = SmartDashboard.getNumber("kP", 0);
-		RobotParameters.rateGains.kI = SmartDashboard.getNumber("kI", 0);
-		RobotParameters.rateGains.kD = SmartDashboard.getNumber("kD", 0);
+		RobotParameters.leftRateGains.kP = SmartDashboard.getNumber("lP", 0);
+		RobotParameters.rightRateGains.kP = SmartDashboard.getNumber("rP", 0);
+		RobotParameters.leftRateGains.kI = SmartDashboard.getNumber("lI", 0);
+		RobotParameters.rightRateGains.kI = SmartDashboard.getNumber("rI", 0);
+		RobotParameters.leftRateGains.kD = SmartDashboard.getNumber("lD", 0);
+		RobotParameters.rightRateGains.kD = SmartDashboard.getNumber("rD", 0);
 		CommandBase.sensors.velocityPID = SmartDashboard.getBoolean("VelocityPID", false);
 
 		sensors.complete = SmartDashboard.getBoolean("Complete", false);

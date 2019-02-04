@@ -18,6 +18,7 @@ public class RobotParameters {
 	public static final double ENCODER_RESOLUTION = 1440;
 
 	public static Gains positionGains = new Gains(0.0008, 0.3, 0.4, 0);
-	public static Gains rateGains = new Gains(0.0, 0, 0.0004, 0);
+	public static Gains leftRateGains = new Gains(0.0, 0, 0.0004, 0);
+	public static Gains rightRateGains = new Gains(0.0, 0, 0.0004, 0);
 	public static Gains angleGains = new Gains(0.5, 0, 0, 0);
 }
