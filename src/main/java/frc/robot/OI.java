@@ -18,9 +18,9 @@ public class OI {
 		CommandBase.joystick.whenPressed(SubsystemJoystick.d_A, new CommandDriverPosition(5));
 		CommandBase.joystick.whenPressed(SubsystemJoystick.d_B, new CommandReset());
 		CommandBase.joystick.whenPressed(SubsystemJoystick.d_X, new CommandDriverAngle(90));
-		CommandBase.joystick.whenPressed(SubsystemJoystick.d_Y, new CommandDriverVelocity(1));
-		CommandBase.joystick.whenPressed(SubsystemJoystick.d_POV_U, new CommandDriverVelocity(1.5));
-		CommandBase.joystick.whenPressed(SubsystemJoystick.d_POV_D, new CommandDriverVelocity(2));
+		CommandBase.joystick.whenPressed(SubsystemJoystick.d_Y, new CommandDriverVelocity(1, 1.5));
+		CommandBase.joystick.whenPressed(SubsystemJoystick.d_POV_U, new CommandDriverVelocity(0, 0));
+		CommandBase.joystick.whenPressed(SubsystemJoystick.d_POV_D, new CommandDriverVelocity(1.5, 2));
 
 	}
 }

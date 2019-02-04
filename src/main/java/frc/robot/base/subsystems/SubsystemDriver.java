@@ -1,7 +1,6 @@
 package frc.robot.base.subsystems;
 
 import static frc.robot.RobotMap.*;
-import static frc.robot.RobotParameters.*;
 
 import frc.robot.base.util.Gains;
 import frc.robot.base.util.PIDType;
@@ -99,13 +98,13 @@ public class SubsystemDriver extends Subsystem5800 {
 		setSetpoint(setpoint);
 	}
 	
-	public void velocityPID(double setpoint, double turn){
+	public void velocityPID(double left, double right){
 		setPIDMode(PIDType.kRate);
 		gearRight.setInverted(true);
 		sensorRight.inPhase(-1);
 		setGains(RobotParameters.rateGains);
-		controllerLeft.setSetpoint(setpoint + turn);
-		controllerRight.setSetpoint(setpoint - turn);
+		controllerLeft.setSetpoint(left);
+		controllerRight.setSetpoint(right);
 	}
 
 	public void anglePID(double setpoint){

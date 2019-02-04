@@ -29,7 +29,7 @@ public abstract class CommandBase extends Command {
 
 	public static void init() {
 		sensors.setDefCommand(new CommandUpdateSensors());
-		driver.setDefCommand(new CommandDriver());
+		driver.setDefCommand(new CommandDrive());
 
 		// Don't move or change this. EVER.
 		oi = new OI();
