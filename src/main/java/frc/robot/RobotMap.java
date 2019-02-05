@@ -19,7 +19,9 @@ public class RobotMap {
 
 	/* Solenoid (0 - 7) */
 	public static final int 
-	HATCH_SOLENOID_ID = 0;
+	SOLENOID_TEST_ONE_ID = 0,
+	SOLENOID_TEST_TWO_ID = 1,
+	SOLENOID_TEST_THREE_ID = 2;
 
 	/* Digital I/Os (0 - 9) */
 	public static final int

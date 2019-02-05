@@ -3,23 +3,20 @@ package frc.robot.base.commands.teleoperated;
 import frc.robot.base.commands.CommandBase;
 import frc.robot.superclasses.*;
 
-/**
- * Add your docs here.
- */
-public class CommandHatchIntake extends Command5800 {
-    public CommandHatchIntake(){
+
+public class CommandDoubleSolenoidOff extends Command5800 {
+    public CommandDoubleSolenoidOff(){
         super(CommandBase.hatchIntake);
     }
     
     protected void execute(){
+        hatchIntake.disactiveDoubleSolenoid();;
     }
     
     protected boolean isDone(){
-        return true;
+        return false;
     }
     
     protected void onCompletion(){
-        hatchIntake.state = !hatchIntake.state;
-        hatchIntake.hatchIntake(hatchIntake.state);
     }
 }
