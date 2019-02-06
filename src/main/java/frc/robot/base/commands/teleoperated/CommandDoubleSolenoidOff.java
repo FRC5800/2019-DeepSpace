@@ -10,7 +10,7 @@ public class CommandDoubleSolenoidOff extends Command5800 {
     }
     
     protected void execute(){
-        hatchIntake.disactiveDoubleSolenoid();;
+        hatchIntake.disactiveDoubleSolenoid();
     }
     
     protected boolean isDone(){

@@ -15,6 +15,8 @@ public class SubsystemHatchIntake extends Subsystem5800{
   //Código para teste de dois solenoid, não oficial do hatchIntake
     public Solenoid testOne = new Solenoid(SOLENOID_TEST_ONE_ID);
     public DoubleSolenoid testTwo = new DoubleSolenoid(SOLENOID_TEST_TWO_ID, SOLENOID_TEST_THREE_ID);
+    //public Solenoid testTwo = new Solenoid(SOLENOID_TEST_TWO_ID);
+    //public Solenoid testThree = new Solenoid(SOLENOID_TEST_THREE_ID);
 
     public SubsystemHatchIntake(){
         super();
@@ -25,14 +27,26 @@ public class SubsystemHatchIntake extends Subsystem5800{
     }
 
     public void activeDoubleSolenoid(){
-      this.testTwo.set(Value.kForward);
+      this.testTwo.set(DoubleSolenoid.Value.kForward);
+      //this.testTwo.set(true);  
+      //this.testThree.set(true);  
     }
 
     public void disactiveDoubleSolenoid(){
-      this.testTwo.set(Value.kOff);
+      this.testTwo.set(DoubleSolenoid.Value.kOff);
+      //this.testTwo.set(false);
+      //this.testThree.set(false);
+
     }
 
     public void activeReverseDoubleSolenoid(){
-      this.testTwo.set(Value.kReverse);
+      this.testTwo.set(DoubleSolenoid.Value.kReverse);
+      //this.testTwo.set(true);
+      //this.testTwo.set(false);
     }
+
+    /*public void middleSolenoid(){
+      this.testTwo.set(false);
+      this.testThree.set(true);
+    }*/
 }
