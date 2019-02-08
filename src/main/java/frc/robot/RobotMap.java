@@ -13,9 +13,15 @@ public class RobotMap {
 	DRIVE_MOTOR_FL_ID = 0, 
 	DRIVE_MOTOR_RR_ID = 3, 
 	DRIVE_MOTOR_RL_ID = 1,
-	ARM_MOTOR_ID = 8,
 	CARGO_MOTOR_LEFT_ID = 4,
 	CARGO_MOTOR_RIGHT_ID = 5;
+
+	/* CAN TalonSRX (0 - 63) */
+	public static final int
+	ARM_MOTOR_ID = 0,
+	ARM_MOTOR_2_ID = 1,
+	LIFT_MOTOR_ID = 2,
+	LIFT_MOTOR_2_ID = 3;
 
 	/* Solenoid (0 - 7) */
 	public static final int 

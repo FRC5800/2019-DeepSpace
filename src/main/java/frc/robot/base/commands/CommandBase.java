@@ -22,7 +22,7 @@ public abstract class CommandBase extends Command {
 	public static SubsystemSensors sensors = new SubsystemSensors();
 	public static SubsystemJoystick joystick = new SubsystemJoystick();
 	public static SubsystemDriver driver = new SubsystemDriver();
-	public static SubsystemLift lift = new SubsystemLift();
+	public static SubsystemArmLift armLift = new SubsystemArmLift();
 	public static SubsystemHatchIntake hatchIntake = new SubsystemHatchIntake();
 	public static SubsystemCargoIntake cargoIntake = new SubsystemCargoIntake();
 
