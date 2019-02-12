@@ -14,7 +14,8 @@ public class RobotMap {
 	DRIVE_MOTOR_RR_ID = 3, 
 	DRIVE_MOTOR_RL_ID = 1,
 	CARGO_MOTOR_LEFT_ID = 4,
-	CARGO_MOTOR_RIGHT_ID = 5;
+	CARGO_MOTOR_RIGHT_ID = 5,
+	HATCH_MOTOR_ID = 6;
 
 	/* CAN TalonSRX (0 - 63) */
 	public static final int
@@ -32,5 +33,7 @@ public class RobotMap {
 	DRIVE_ENCODER_R1_ID = 0, 
 	DRIVE_ENCODER_R2_ID = 1, 
 	DRIVE_ENCODER_L1_ID = 2,
-	DRIVE_ENCODER_L2_ID = 3;
+	DRIVE_ENCODER_L2_ID = 3,
+	HATCH_LIMITSWITCH_UP_ID = 4,
+	HATCH_LIMITSWITCH_DOWN_ID = 5;
 }

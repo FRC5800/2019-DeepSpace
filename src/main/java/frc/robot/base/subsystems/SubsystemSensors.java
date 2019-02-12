@@ -7,15 +7,19 @@ import static frc.robot.RobotMap.DRIVE_ENCODER_R2_ID;
 
 import frc.robot.base.util.Converter;
 import frc.robot.superclasses.Subsystem5800;
-
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.Encoder;
+import static frc.robot.RobotMap.*;
 
 public class SubsystemSensors extends Subsystem5800 { 
+
 	public boolean sla = false;
 	public ADXRS450_Gyro gyro = new ADXRS450_Gyro();
 	public Encoder driveEncoderR = new Encoder(DRIVE_ENCODER_R1_ID, DRIVE_ENCODER_R2_ID);
-	public Encoder driveEncoderL = new Encoder(DRIVE_ENCODER_L1_ID, DRIVE_ENCODER_L2_ID);
+	public Encoder driveEncoderL = new Encoder(DRIVE_ENCODER_L1_ID, DRIVE_ENCODER_L2_ID);	
+    public DigitalInput limitSwitchUp = new DigitalInput(HATCH_LIMITSWITCH_UP_ID);
+    public DigitalInput limitSwitchDown = new DigitalInput(HATCH_LIMITSWITCH_DOWN_ID);
 
 	public void init() {
 		this.gyro.reset();
@@ -52,5 +56,16 @@ public class SubsystemSensors extends Subsystem5800 {
 
 	public double getChassiAngle() {
 		return gyro.getAngle();
+	}
+
+	public boolean statusLimitSwitch(char selector){
+		 boolean state = false;
+		if(selector == 'U'){
+			state = this.limitSwitchUp.get();
+		} else if (selector == 'D'){
+			state = this.limitSwitchDown.get();
+		}
+		return state;
+
 	}
 }

@@ -6,9 +6,12 @@ import frc.robot.superclasses.*;
 /**
  * Add your docs here.
  */
-public class CommandHatchIntake extends Command5800 {
-    public CommandHatchIntake(){
-        super(CommandBase.hatchIntake);
+
+public class CommandHatchIntakeSolenoid extends Command5800 {
+
+    public CommandHatchIntakeSolenoid(){
+     super(CommandBase.hatchIntake);
+        
     }
     
     protected void execute(){
