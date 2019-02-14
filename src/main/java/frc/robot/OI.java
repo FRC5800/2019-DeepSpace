@@ -12,14 +12,15 @@ public class OI {
 		//Autonomous.initAutonomous();
 	
 		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_X, new CommandHatchIntake());
-		CommandBase.joystick.whenPressed(SubsystemJoystick.d_RT, new CommandArmSetMotor(0.5));
-		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_A, new CommandArmSetMotor(0));
+		CommandBase.joystick.whenPressed(SubsystemJoystick.d_B, new CommandArmSetMotor(-0.7));
+		CommandBase.joystick.whenPressed(SubsystemJoystick.d_Y, new CommandArmSetMotor(0.7));
+		CommandBase.joystick.whenPressed(SubsystemJoystick.d_A, new CommandArmSetMotor(0));
 		CommandBase.joystick.whenPressed(SubsystemJoystick.d_X, new CommandArm(0));
-		CommandBase.joystick.whenPressed(SubsystemJoystick.d_Y, new CommandArm(5));
-		CommandBase.joystick.whenPressed(SubsystemJoystick.d_B, new CommandReset());
-		CommandBase.joystick.whenHeld(SubsystemJoystick.d_LT, new CommandCargoIntake(0.4, true));
-		CommandBase.joystick.whenHeld(SubsystemJoystick.d_RT, new CommandCargoIntake(0.4, false));
-		CommandBase.joystick.whenPressed(SubsystemJoystick.d_A, new CommandHatchIntakeMotor(0.4));
+		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_Y, new CommandArm(5));
+		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_B, new CommandReset());
+		CommandBase.joystick.whenHeld(SubsystemJoystick.d_LT, new CommandCargoIntake());
+		CommandBase.joystick.whenHeld(SubsystemJoystick.d_RT, new CommandCargoOuttake());
+		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_A, new CommandHatchIntakeMotor(0.4));
 		
 	}
 }

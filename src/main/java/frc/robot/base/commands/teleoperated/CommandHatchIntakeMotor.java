@@ -15,9 +15,9 @@ public class CommandHatchIntakeMotor extends Command5800 {
     
     protected void execute(){
       if (this.limitSwitchStateUp == true){
-        CommandBase.hatchIntake.hatchMotor(-0.4);
+        CommandBase.hatchIntake.hatchMotor(-0.3);
       }else if (this.limitSwitchStateDown == true){
-        CommandBase.hatchIntake.hatchMotor(0.4);
+        CommandBase.hatchIntake.hatchMotor(0.3);
       }
     }
 

@@ -34,7 +34,7 @@ public class SubsystemArmLift extends Subsystem5800{
 
     public void setArmMotor(double speed){
         this.armMotor.set(ControlMode.PercentOutput, speed);
-        this.armMotor2.set(ControlMode.PercentOutput, speed);
+        this.armMotor2.set(ControlMode.PercentOutput, -speed);
     }
 
     public void setLiftMotor(double speed){
