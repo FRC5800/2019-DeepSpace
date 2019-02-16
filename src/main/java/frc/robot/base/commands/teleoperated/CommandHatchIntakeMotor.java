@@ -5,28 +5,31 @@ import frc.robot.superclasses.*;
 
 public class CommandHatchIntakeMotor extends Command5800 {
 
-    public boolean limitSwitchStateUp =  CommandBase.sensors.statusLimitSwitch('U');
-    public boolean limitSwitchStateDown =  CommandBase.sensors.statusLimitSwitch('D');
-
+    public static boolean isDone;
+    public double _sp;
 
     public CommandHatchIntakeMotor(double speed){     
      super(CommandBase.hatchIntake);
+        _sp = speed;
     }
     
     protected void execute(){
-      if (this.limitSwitchStateUp == true){
-        CommandBase.hatchIntake.hatchMotor(-0.3);
-      }else if (this.limitSwitchStateDown == true){
-        CommandBase.hatchIntake.hatchMotor(0.3);
+      if (hatchIntake.status){
+        hatchIntake.hatchMotor(_sp);
+      }
+      if (!hatchIntake.status){
+        hatchIntake.hatchMotor(_sp);
       }
     }
-
-
     protected boolean isDone(){
-      return this.limitSwitchStateDown || this.limitSwitchStateUp;
-    }
+      boolean U = (CommandBase.hatchIntake.status && CommandBase.sensors.statusLimitSwitch('U'));
+      boolean D = (!CommandBase.hatchIntake.status && CommandBase.sensors.statusLimitSwitch('D'));
+      return U || D; 
+         
+    } 
     
     protected void onCompletion(){
       CommandBase.hatchIntake.hatchMotor(0.0);
+      CommandBase.hatchIntake.status = !CommandBase.hatchIntake.status;
     }
 }

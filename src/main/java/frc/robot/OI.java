@@ -18,8 +18,8 @@ public class OI {
 		CommandBase.joystick.whenPressed(SubsystemJoystick.d_X, new CommandArm(0));
 		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_Y, new CommandArm(5));
 		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_B, new CommandReset());
-		CommandBase.joystick.whenHeld(SubsystemJoystick.d_LT, new CommandCargoIntake());
-		CommandBase.joystick.whenHeld(SubsystemJoystick.d_RT, new CommandCargoOuttake());
+		CommandBase.joystick.whenHeld(SubsystemJoystick.d_LT, new CommandCargoIntake(0.5));
+		CommandBase.joystick.whenHeld(SubsystemJoystick.d_RT, new CommandCargoIntake(-0.5));
 		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_A, new CommandHatchIntakeMotor(0.4));
 		
 	}

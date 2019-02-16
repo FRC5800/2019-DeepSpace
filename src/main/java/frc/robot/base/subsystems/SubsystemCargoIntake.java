@@ -14,21 +14,11 @@ public class SubsystemCargoIntake extends Subsystem5800{
 
     public SubsystemCargoIntake(){
         super();
+        motorRight.setInverted(true);
     }
-    public void cargoIntake(){
-        motorLeft.set(-0.5);
-        motorRight.set(0.5);
+    public void cargoIntakeSet(double speed){
+        motorLeft.set(speed);
+        motorRight.set(speed);
     }
-
-    public void cargoOuttake(){
-        motorLeft.set(0.5);
-        motorRight.set(-0.5);
-    }
-
-    public void intakeStop(){
-        motorLeft.set(0);
-        motorRight.set(0);
-    }
-
 
 }
