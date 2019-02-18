@@ -23,6 +23,14 @@ public class SubsystemArmLift extends Subsystem5800{
         this.setGains(RobotParameters.armGains, armMotor);
         liftMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
         this.setGains(RobotParameters.liftGains, liftMotor);
+
+        armMotor.setInverted(false);
+        armMotor2.setInverted(true);
+
+        liftMotor.configPeakOutputForward(0.35);
+        liftMotor.configPeakOutputReverse(-0.1);
+        armMotor.configPeakOutputForward(0.35);
+        armMotor.configPeakOutputReverse(-0.1);
     }
 
     public void setGains(Gains _gains, TalonSRX _talon){
@@ -43,12 +51,12 @@ public class SubsystemArmLift extends Subsystem5800{
     }
 
     public void positionPIDArm(double _dis){
-        armMotor.set(ControlMode.Position, _dis*4096);
+        armMotor.set(ControlMode.Position, _dis);
         armMotor2.follow(armMotor);
     }
 
     public void positionPIDLift(double _dis){
-        liftMotor.set(ControlMode.Position, _dis*4096);
+        liftMotor.set(ControlMode.Position, _dis);
         liftMotor2.follow(liftMotor);
     }
 }

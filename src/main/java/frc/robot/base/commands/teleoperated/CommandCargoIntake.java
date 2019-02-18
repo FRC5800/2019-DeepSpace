@@ -5,14 +5,15 @@ import frc.robot.superclasses.*;
 
 
 public class CommandCargoIntake extends Command5800 {
-   
+    double speed;
+
     public CommandCargoIntake(double speed){
         super(CommandBase.cargoIntake);
-        cargoIntake.cargoIntakeSet(speed);
-       
+        this.speed = speed;
     }
     
     protected void execute(){
+        cargoIntake.cargoIntakeSet(speed);
     }
     
     protected boolean isDone(){

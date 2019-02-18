@@ -11,10 +11,6 @@ public class CommandArm extends Command5800 {
         super(CommandBase.armLift);
         dis = _dis;
     }
-    
-    protected void onInit(){
-      CommandBase.armLift.armMotor2.setInverted(true);
-    }
 
     protected void execute(){
         CommandBase.armLift.positionPIDArm(dis);
