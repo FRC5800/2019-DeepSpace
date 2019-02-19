@@ -27,10 +27,10 @@ public class SubsystemArmLift extends Subsystem5800{
         armMotor.setInverted(false);
         armMotor2.setInverted(true);
 
-        liftMotor.configPeakOutputForward(0.35);
-        liftMotor.configPeakOutputReverse(-0.1);
-        armMotor.configPeakOutputForward(0.35);
-        armMotor.configPeakOutputReverse(-0.1);
+        liftMotor.configPeakOutputForward(1);
+        liftMotor.configPeakOutputReverse(-0.5);
+        armMotor.configPeakOutputForward(1);
+        armMotor.configPeakOutputReverse(-0.5);
     }
 
     public void setGains(Gains _gains, TalonSRX _talon){
