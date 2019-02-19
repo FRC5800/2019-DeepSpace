@@ -14,6 +14,7 @@ public class CommandLift extends Command5800 {
 
     protected void execute(){
         CommandBase.armLift.positionPIDLift(dis);
+        CommandBase.armLift.positionPIDArm(120);
 
     }
 
