@@ -22,14 +22,12 @@ public class CommandHatchIntakeMotor extends Command5800 {
       }
     }
     protected boolean isDone(){
-      boolean U = (CommandBase.hatchIntake.status && CommandBase.sensors.statusLimitSwitch('U'));
-      boolean D = (!CommandBase.hatchIntake.status && CommandBase.sensors.statusLimitSwitch('D'));
-      return U || D; 
+     return false; 
          
     } 
     
     protected void onCompletion(){
-      CommandBase.hatchIntake.hatchMotor(0.0);
+      CommandBase.hatchIntake.hatchMotor(0.1);
       CommandBase.hatchIntake.status = !CommandBase.hatchIntake.status;
     }
 }

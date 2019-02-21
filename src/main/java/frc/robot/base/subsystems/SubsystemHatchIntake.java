@@ -19,6 +19,10 @@ public class SubsystemHatchIntake extends Subsystem5800{
         super();
     }
 
+    public void onInit(){
+      this.hatchIntakeMotor.set(0.15);
+    }
+
     public void hatchIntake(boolean state){
       this.hatchIntakeSolenoid.set(state);
     }
