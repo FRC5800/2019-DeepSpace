@@ -16,9 +16,9 @@ public class OI {
 		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_Y, new CommandArmSetMotor(0.7));
 		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_A, new CommandArmSetMotor(0));
 		CommandBase.joystick.whenPressed(SubsystemJoystick.d_A, new CommandArm(200));
-		CommandBase.joystick.whenPressed(SubsystemJoystick.d_B, new CommandArm(3350));
+		CommandBase.joystick.whenPressed(SubsystemJoystick.d_B, new CommandArm(3450));
 		CommandBase.joystick.whenPressed(SubsystemJoystick.d_X, new CommandLift(0));
-		CommandBase.joystick.whenPressed(SubsystemJoystick.d_Y, new CommandLift(5000));
+		CommandBase.joystick.whenPressed(SubsystemJoystick.d_Y, new CommandLift(10000));
 		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_B, new CommandReset());
 
 		//Cargo Intake
