@@ -15,20 +15,15 @@ public class OI {
 		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_B, new CommandArmSetMotor(-0.7));
 		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_Y, new CommandArmSetMotor(0.7));
 		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_A, new CommandArmSetMotor(0));
-		CommandBase.joystick.whenPressed(SubsystemJoystick.d_A, new CommandArm(200));
-		CommandBase.joystick.whenPressed(SubsystemJoystick.d_B, new CommandArm(3450));
-		CommandBase.joystick.whenPressed(SubsystemJoystick.d_X, new CommandLift(0));
-		CommandBase.joystick.whenPressed(SubsystemJoystick.d_Y, new CommandLift(10000));
+		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_A, new CommandArm(200));
+		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_B, new CommandArm(3450));
+		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_X, new CommandLift(0));
+		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_Y, new CommandLift(10000));
 		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_B, new CommandReset());
-
-		//Cargo Intake
-		CommandBase.joystick.whenHeld(SubsystemJoystick.d_LT, new CommandCargoIntake(0.5));
-		CommandBase.joystick.whenHeld(SubsystemJoystick.d_RT, new CommandCargoIntake(-0.5));
-
-		//Hatch Intake
-		CommandBase.joystick.whenPressed(SubsystemJoystick.j_Six, new CommandHatchMotorUp(0.6));
-		CommandBase.joystick.whenPressed(SubsystemJoystick.j_Five, new CommandHatchMotorUp(-0.2));
-		CommandBase.joystick.whenPressed(SubsystemJoystick.j_Thumb, new CommandHatchIntakeSolenoid());
+		CommandBase.joystick.whenHeld(SubsystemJoystick.j_POV_D, new CommandHatchMotor(true));
+		CommandBase.joystick.whenHeld(SubsystemJoystick.j_Thumb, new CommandIntake(true));
+		CommandBase.joystick.whenHeld(SubsystemJoystick.j_POV_U, new CommandHatchMotor(false));
+		CommandBase.joystick.whenHeld(SubsystemJoystick.j_Fire, new CommandIntake(false));
 
 		//PID Buttons
 		/*CommandBase.joystick.whenPressed(SubsystemJoystick.j_Seven, new CommandLift(1235)

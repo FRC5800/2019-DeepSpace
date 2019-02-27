@@ -36,7 +36,9 @@ public class SubsystemJoystick {
 			j_Five = new JoystickButton(stick_j, 5), j_Six = new JoystickButton(stick_j, 6),
 			j_Seven = new JoystickButton(stick_j, 7), j_Eight = new JoystickButton(stick_j, 8),
 			j_Nine = new JoystickButton(stick_j, 9), j_Ten = new JoystickButton(stick_j, 10),
-			j_Eleven = new JoystickButton(stick_j, 11), j_Twelve = new JoystickButton(stick_j, 12);
+			j_Eleven = new JoystickButton(stick_j, 11), j_Twelve = new JoystickButton(stick_j, 12),
+			j_POV_U = new JoystickPOVButton(stick_j, 0), j_POV_R = new JoystickPOVButton(stick_j, 90),
+			j_POV_D = new JoystickPOVButton(stick_j, 180), j_POV_L = new JoystickPOVButton(stick_j, 270);
 
 	public SubsystemJoystick() {
 		super();

@@ -22,6 +22,7 @@ public class CommandUpdateSensors extends Command5800 {
 				Converter.convertEncoder(CommandBase.sensors.getChassiPulses('R'), 'P'));
 		SmartDashboard.putNumber("Speed Encoder R",
 				Converter.convertEncoder(CommandBase.sensors.getChassiSpeed('R'), 'P'));
+		SmartDashboard.putBoolean("Status", CommandBase.intake.status);
 	}
 
 	@Override
