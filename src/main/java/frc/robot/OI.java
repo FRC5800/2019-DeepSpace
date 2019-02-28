@@ -2,9 +2,7 @@ package frc.robot;
 
 //import frc.robot.base.commands.autonomous.Autonomous;
 import frc.robot.base.commands.teleoperated.*;
-import frc.robot.base.commands.drive.*;
 import frc.robot.base.commands.CommandBase;
-import frc.robot.base.commands.CommandInterruptCommand;
 import frc.robot.base.subsystems.SubsystemJoystick;
 
 public class OI {
@@ -12,13 +10,13 @@ public class OI {
 		//Autonomous.initAutonomous();
 	
 		CommandBase.joystick.whenPressed(SubsystemJoystick.d_A, new CommandArmLift(200, 0));
-		CommandBase.joystick.whenPressed(SubsystemJoystick.d_B, new CommandArmLift(1500, 0));
-		CommandBase.joystick.whenPressed(SubsystemJoystick.d_B, new CommandArmLift(1500, 5000));
-		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_B, new CommandReset());
-		CommandBase.joystick.whenHeld(SubsystemJoystick.j_POV_D, new CommandHatchMotor(true));
-		CommandBase.joystick.whenHeld(SubsystemJoystick.j_Thumb, new CommandIntake(true));
-		CommandBase.joystick.whenHeld(SubsystemJoystick.j_POV_U, new CommandHatchMotor(false));
-		CommandBase.joystick.whenHeld(SubsystemJoystick.j_Fire, new CommandIntake(false));
+		CommandBase.joystick.whenPressed(SubsystemJoystick.d_B, new CommandArmLift(3500, 14000));
+		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_Y, new CommandArmLift(200, 10000));
+		CommandBase.joystick.whenPressed(SubsystemJoystick.d_X, new CommandResetSensor());
+		//CommandBase.joystick.whenHeld(SubsystemJoystick.j_POV_D, new CommandHatchMotor(true));
+		//CommandBase.joystick.whenHeld(SubsystemJoystick.j_Thumb, new CommandIntake(true));
+		//CommandBase.joystick.whenHeld(SubsystemJoystick.j_POV_U, new CommandHatchMotor(false));
+		//CommandBase.joystick.whenHeld(SubsystemJoystick.j_Fire, new CommandIntake(false));
 
 		//PID Buttons
 		/*CommandBase.joystick.whenPressed(SubsystemJoystick.j_Seven, new CommandLift(1235)

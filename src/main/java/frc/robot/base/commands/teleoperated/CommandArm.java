@@ -17,11 +17,9 @@ public class CommandArm extends Command5800 {
     }
 
     protected boolean isDone(){
-        return CommandBase.sensors.sla;
+        return CommandBase.armLift.armOnTarget(0.1);
     }
 
     protected void onCompletion(){
-        CommandBase.sensors.sla = false;
-        CommandBase.armLift.setArmMotor(0);
     }
 }

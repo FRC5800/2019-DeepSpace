@@ -12,7 +12,7 @@ public class CommandResetSensor extends Command5800{
       
     protected void execute(){;
         armLift.armMotor.setSelectedSensorPosition(0);
-        armLift.liftMotor.setSelectedSensorPosition(0);
+        //armLift.liftMotor.setSelectedSensorPosition(0);
         
     }
     

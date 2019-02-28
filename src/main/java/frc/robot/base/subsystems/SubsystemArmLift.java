@@ -66,6 +66,10 @@ public class SubsystemArmLift extends Subsystem5800{
     }
 
     public boolean armOnTarget(double _t){
-        return (armMotor.getClosedLoopError() / armMotor.getClosedLoopTarget()) < _t;
+        if (armMotor.getControlMode() == ControlMode.Position){
+            return Math.abs(armMotor.getClosedLoopError() / armMotor.getClosedLoopTarget()) < _t;
+        } else {
+            return false;
+        }
     }
 }

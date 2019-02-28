@@ -26,10 +26,10 @@ public class CommandDriver extends Command5800 {
 	protected void arcadeDrive(double speed, double rotation){
 		double modifier = minR + difR * Math.pow(1 - Math.abs(speed), 2);
 		double rate = Math.pow(rotation, 3) * modifier;
-		
-		CommandBase.driver.tankDrive(speed + rate, speed - rate, 0.05);
-	}
 
+		CommandBase.driver.tankDrive(0.7 * (speed + rate), 0.7 * (speed - rate), 0.05);
+
+	}
 	protected void onCompletion() {
 	}
 

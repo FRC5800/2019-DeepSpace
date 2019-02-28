@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.VictorSP;
 
 public class SubsystemIntake extends Subsystem5800{
-  public boolean status = true;
+  public boolean status = false;
  
   public VictorSP motorLeft = new VictorSP(CARGO_MOTOR_LEFT_ID);
   public VictorSP motorRight = new VictorSP(CARGO_MOTOR_RIGHT_ID);

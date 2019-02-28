@@ -14,7 +14,7 @@ public class CommandIntake extends Command5800 {
   protected void onStart(){}
 
   protected void execute(){
-    if(CommandBase.intake.status){
+    if(!CommandBase.intake.status){
       if(this.status){
         CommandBase.intake.cargoIntakeSet(0.4);
       } else {

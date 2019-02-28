@@ -23,7 +23,7 @@ public class SubsystemDriver extends Subsystem5800 {
 	private PIDSensor sensorLeft = new PIDSensor(CommandBase.sensors.driveEncoderL, CommandBase.sensors.gyro);
 	private PIDSensor sensorRight = new PIDSensor(CommandBase.sensors.driveEncoderR, CommandBase.sensors.gyro);
 
-	private SpeedControllerGroup gearLeft = new SpeedControllerGroup(motorFrontLeft, motorRearLeft){
+	public SpeedControllerGroup gearLeft = new SpeedControllerGroup(motorFrontLeft, motorRearLeft){
 		@Override
 		public void pidWrite(double output){
 			switch (sensorLeft.mode){
@@ -104,7 +104,7 @@ public class SubsystemDriver extends Subsystem5800 {
 		double gL = gearLeft.get();
 		double gR = gearRight.get();
 		double l = Math.max(gL - _ramp, Math.min(gL + _ramp, _l));
-		double r = Math.max(gR - _ramp, Math.min(gR + _ramp, _l));
+		double r = Math.max(gR - _ramp, Math.min(gR + _ramp, _r));
 		
 		gearLeft.set(l);
 		gearRight.set(r);
