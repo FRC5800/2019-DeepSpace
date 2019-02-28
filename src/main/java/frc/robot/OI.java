@@ -11,14 +11,9 @@ public class OI {
 	public OI() {
 		//Autonomous.initAutonomous();
 	
-		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_X, new CommandHatchIntake());
-		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_B, new CommandArmSetMotor(-0.7));
-		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_Y, new CommandArmSetMotor(0.7));
-		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_A, new CommandArmSetMotor(0));
-		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_A, new CommandArm(200));
-		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_B, new CommandArm(3450));
-		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_X, new CommandLift(0));
-		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_Y, new CommandLift(10000));
+		CommandBase.joystick.whenPressed(SubsystemJoystick.d_A, new CommandArmLift(200, 0));
+		CommandBase.joystick.whenPressed(SubsystemJoystick.d_B, new CommandArmLift(1500, 0));
+		CommandBase.joystick.whenPressed(SubsystemJoystick.d_B, new CommandArmLift(1500, 5000));
 		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_B, new CommandReset());
 		CommandBase.joystick.whenHeld(SubsystemJoystick.j_POV_D, new CommandHatchMotor(true));
 		CommandBase.joystick.whenHeld(SubsystemJoystick.j_Thumb, new CommandIntake(true));

@@ -96,6 +96,20 @@ public class SubsystemDriver extends Subsystem5800 {
 		controllerRight.setSetpoint(setpoint - turn);
 	}
 
+	public void tankDrive(double _l, double _r){
+		gearLeft.set(_l);
+		gearRight.set(_r);
+	}
+	public void tankDrive(double _l, double _r, double _ramp){
+		double gL = gearLeft.get();
+		double gR = gearRight.get();
+		double l = Math.max(gL - _ramp, Math.min(gL + _ramp, _l));
+		double r = Math.max(gR - _ramp, Math.min(gR + _ramp, _l));
+		
+		gearLeft.set(l);
+		gearRight.set(r);
+	}
+
 	public void anglePID(double setpoint){
 		setPIDMode(PIDType.kAngle);
 		setGains(RobotParameters.angleGains);

@@ -1,7 +1,6 @@
 package frc.robot.base.commands.teleoperated;
 
 import frc.robot.base.commands.CommandBase;
-import frc.robot.base.subsystems.SubsystemJoystick;
 import frc.robot.superclasses.*;
 
 public class CommandHatchMotor extends Command5800 {

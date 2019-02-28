@@ -27,7 +27,7 @@ public class CommandDriver extends Command5800 {
 		double modifier = minR + difR * Math.pow(1 - Math.abs(speed), 2);
 		double rate = Math.pow(rotation, 3) * modifier;
 		
-		CommandBase.driver.velocityPID(speed * 15, rate * 15);
+		CommandBase.driver.tankDrive(speed + rate, speed - rate, 0.05);
 	}
 
 	protected void onCompletion() {

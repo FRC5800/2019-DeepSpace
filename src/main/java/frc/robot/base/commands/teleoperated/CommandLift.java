@@ -1,6 +1,5 @@
 package frc.robot.base.commands.teleoperated;
 
-import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.base.commands.CommandBase;
 import frc.robot.superclasses.*;
 

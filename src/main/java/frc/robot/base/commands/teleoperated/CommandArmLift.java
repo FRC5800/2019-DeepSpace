@@ -1,7 +1,6 @@
 package frc.robot.base.commands.teleoperated;
 
 import frc.robot.base.commands.CommandBase;
-import frc.robot.base.subsystems.SubsystemJoystick;
 import frc.robot.superclasses.*;
 
 public class CommandArmLift extends Command5800{
@@ -14,16 +13,14 @@ public class CommandArmLift extends Command5800{
     }
       
     protected void execute(){
-        armLift.positionPIDArm(this.arm);
-        if (armLift.armMotor.getClosedLoopError() < 50){
-            armLift.positionPIDLift(this.lift);
-        }
+        CommandBase.armLift.positionPIDArm(this.arm);
     }
     
     protected boolean isDone(){
-        return false;
+        return CommandBase.armLift.armOnTarget(0.1);
     }
     
     protected void onCompletion(){
+        CommandBase.armLift.positionPIDLift(this.lift);
     }
 }

@@ -64,4 +64,8 @@ public class SubsystemArmLift extends Subsystem5800{
         liftMotor.set(ControlMode.Position, _dis);
         liftMotor2.follow(liftMotor);
     }
+
+    public boolean armOnTarget(double _t){
+        return (armMotor.getClosedLoopError() / armMotor.getClosedLoopTarget()) < _t;
+    }
 }
