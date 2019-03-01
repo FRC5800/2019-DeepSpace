@@ -3,10 +3,10 @@ package frc.robot.base.commands.teleoperated;
 import frc.robot.base.commands.CommandBase;
 import frc.robot.superclasses.*;
 
-public class CommandArmLift extends Command5800{
+public class CommandLiftArm extends Command5800{
 
     double arm, lift, delay = 0;
-    public CommandArmLift(double _arm, double _lift){
+    public CommandLiftArm(double _arm, double _lift){
         super(CommandBase.armLift);
         this.arm = _arm;
         this.lift = _lift;
@@ -17,24 +17,24 @@ public class CommandArmLift extends Command5800{
     }
 
     protected void execute(){
-        if(!CommandBase.armLift.status){
-            CommandBase.armLift.positionPIDArm(this.arm);
-            timer();
-        }
+        CommandBase.armLift.positionPIDLift(this.lift);
+        timer();
     }
     
     protected void timer(){
-        if (CommandBase.armLift.armOnTarget(0.1) && (isTimedOut())){
+        if (CommandBase.armLift.liftOnTarget(100) && (isTimedOut())){
             delay++;
         }
     }
-
+    
     protected boolean isDone(){
-        return delay >= 25 || CommandBase.armLift.status;
+        return delay >= 25;
     }
     
     protected void onCompletion(){
-        CommandBase.armLift.positionPIDLift(this.lift);
+        if (!CommandBase.armLift.status){
+            CommandBase.armLift.positionPIDArm(this.arm);
+        }
         delay = 0;
     }
 }

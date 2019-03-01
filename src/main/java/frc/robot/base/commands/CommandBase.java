@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import frc.robot.OI;
 import frc.robot.base.commands.drive.CommandDriver;
 import frc.robot.base.commands.generic.CommandUpdateSensors;
+import frc.robot.base.commands.teleoperated.*;
 import frc.robot.base.subsystems.*;
 import frc.robot.superclasses.Subsystem5800;
 
@@ -29,6 +30,7 @@ public abstract class CommandBase extends Command {
 	public static void init() {
 		sensors.setDefCommand(new CommandUpdateSensors());
 		driver.setDefCommand(new CommandDriver());
+		armLift.setDefCommand(new CommandArm());
 
 		// Don't move or change this. EVER.
 		oi = new OI();

@@ -15,6 +15,7 @@ public class SubsystemArmLift extends Subsystem5800{
     public TalonSRX armMotor2 = new TalonSRX(ARM_MOTOR_2_ID);
     public TalonSRX liftMotor = new TalonSRX(LIFT_MOTOR_ID);
     public TalonSRX liftMotor2 = new TalonSRX(LIFT_MOTOR_2_ID);
+    public boolean status = false;
 
     
     public SubsystemArmLift(){
@@ -23,6 +24,9 @@ public class SubsystemArmLift extends Subsystem5800{
         this.setGains(RobotParameters.armGains, armMotor);
         liftMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
         this.setGains(RobotParameters.liftGains, liftMotor);
+
+        //liftMotor.configClosedloopRamp(0.1);
+        armMotor.configClosedloopRamp(0.1);
 
         liftMotor.setSensorPhase(true);
 
@@ -35,7 +39,7 @@ public class SubsystemArmLift extends Subsystem5800{
         armMotor.configPeakOutputReverse(-0.5);
 
         armMotor.setSelectedSensorPosition(0);
-        liftMotor.setSelectedSensorPosition(0);
+        //liftMotor.setSelectedSensorPosition(0);
     }
 
     public void setGains(Gains _gains, TalonSRX _talon){
@@ -68,6 +72,14 @@ public class SubsystemArmLift extends Subsystem5800{
     public boolean armOnTarget(double _t){
         if (armMotor.getControlMode() == ControlMode.Position){
             return Math.abs(armMotor.getClosedLoopError() / armMotor.getClosedLoopTarget()) < _t;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean liftOnTarget(double _t){
+        if (armMotor.getControlMode() == ControlMode.Position){
+            return Math.abs(liftMotor.getClosedLoopError()) < _t;
         } else {
             return false;
         }

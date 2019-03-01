@@ -9,14 +9,16 @@ public class OI {
 	public OI() {
 		//Autonomous.initAutonomous();
 	
-		CommandBase.joystick.whenPressed(SubsystemJoystick.d_A, new CommandArmLift(200, 0));
-		CommandBase.joystick.whenPressed(SubsystemJoystick.d_B, new CommandArmLift(3500, 14000));
+		CommandBase.joystick.whenPressed(SubsystemJoystick.j_Three, new CommandLiftArm(200, 0));
+		CommandBase.joystick.whenPressed(SubsystemJoystick.j_Six, new CommandArmLift(3380, 15400));
+		CommandBase.joystick.whenPressed(SubsystemJoystick.j_Five, new CommandArmLift(1300, 0));
 		//CommandBase.joystick.whenPressed(SubsystemJoystick.d_Y, new CommandArmLift(200, 10000));
 		CommandBase.joystick.whenPressed(SubsystemJoystick.d_X, new CommandResetSensor());
-		//CommandBase.joystick.whenHeld(SubsystemJoystick.j_POV_D, new CommandHatchMotor(true));
-		//CommandBase.joystick.whenHeld(SubsystemJoystick.j_Thumb, new CommandIntake(true));
-		//CommandBase.joystick.whenHeld(SubsystemJoystick.j_POV_U, new CommandHatchMotor(false));
-		//CommandBase.joystick.whenHeld(SubsystemJoystick.j_Fire, new CommandIntake(false));
+		CommandBase.joystick.whenPressed(SubsystemJoystick.j_Eleven, new CommandManualArm());
+		CommandBase.joystick.whenHeld(SubsystemJoystick.j_POV_D, new CommandHatchMotor(true));
+		CommandBase.joystick.whenHeld(SubsystemJoystick.j_Thumb, new CommandIntake(true));
+		CommandBase.joystick.whenHeld(SubsystemJoystick.j_POV_U, new CommandHatchMotor(false));
+		CommandBase.joystick.whenHeld(SubsystemJoystick.j_Fire, new CommandIntake(false));
 
 		//PID Buttons
 		/*CommandBase.joystick.whenPressed(SubsystemJoystick.j_Seven, new CommandLift(1235)

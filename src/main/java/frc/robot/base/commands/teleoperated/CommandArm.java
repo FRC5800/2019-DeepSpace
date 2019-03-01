@@ -1,23 +1,27 @@
 package frc.robot.base.commands.teleoperated;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+
 import frc.robot.base.commands.CommandBase;
+import frc.robot.base.subsystems.SubsystemJoystick;
 import frc.robot.superclasses.*;
 
 public class CommandArm extends Command5800 {
-    double dis;
-    
-    public CommandArm(double _dis){
+    double speed;
+    public CommandArm(){
         super(CommandBase.armLift);
-        dis = _dis;
     }
 
     protected void execute(){
-        CommandBase.armLift.positionPIDArm(dis);
-
+        this.speed = - SubsystemJoystick.axis_j_Y.get();
+        if(CommandBase.armLift.status){
+            CommandBase.armLift.armMotor.set(ControlMode.PercentOutput, speed);
+            CommandBase.armLift.armMotor2.set(ControlMode.PercentOutput, speed);
+        }
     }
 
     protected boolean isDone(){
-        return CommandBase.armLift.armOnTarget(0.1);
+        return false;
     }
 
     protected void onCompletion(){
