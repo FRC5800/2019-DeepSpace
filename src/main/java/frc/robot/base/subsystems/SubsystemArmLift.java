@@ -15,8 +15,9 @@ public class SubsystemArmLift extends Subsystem5800{
     public TalonSRX armMotor2 = new TalonSRX(ARM_MOTOR_2_ID);
     public TalonSRX liftMotor = new TalonSRX(LIFT_MOTOR_ID);
     public TalonSRX liftMotor2 = new TalonSRX(LIFT_MOTOR_2_ID);
-    public boolean status = false;
-
+    public boolean status = true;
+    public double armPID = 0;
+    public double liftPID = 0;
     
     public SubsystemArmLift(){
         super();

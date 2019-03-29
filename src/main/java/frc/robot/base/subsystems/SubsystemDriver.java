@@ -52,8 +52,10 @@ public class SubsystemDriver extends Subsystem5800 {
 
 	public SubsystemDriver() {
 		super();
-		gearLeft.setInverted(true);
-		gearRight.setInverted(false);
+		motorFrontRight.setInverted(true);
+
+		gearLeft.setInverted(false);
+		gearRight.setInverted(true);
 
 		sensorLeft.inPhase(-1);
 		sensorRight.inPhase(1);
@@ -100,11 +102,12 @@ public class SubsystemDriver extends Subsystem5800 {
 		gearLeft.set(_l);
 		gearRight.set(_r);
 	}
+
 	public void tankDrive(double _l, double _r, double _ramp){
 		double gL = gearLeft.get();
 		double gR = gearRight.get();
 		double l = Math.max(gL - _ramp, Math.min(gL + _ramp, _l));
-		double r = Math.max(gR - _ramp, Math.min(gR + _ramp, _r));
+		double r = Math.max(-gR - _ramp, Math.min(-gR + _ramp, _r));
 		
 		gearLeft.set(l);
 		gearRight.set(r);

@@ -13,11 +13,16 @@ public class CommandArm extends Command5800 {
     }
 
     protected void execute(){
-        this.speed = - SubsystemJoystick.axis_j_Y.get();
+        this.speed = SubsystemJoystick.axis_j_Y.get();
         if(CommandBase.armLift.status){
-            CommandBase.armLift.armMotor.set(ControlMode.PercentOutput, speed);
-            CommandBase.armLift.armMotor2.set(ControlMode.PercentOutput, speed);
+            CommandBase.armLift.armMotor.set(ControlMode.PercentOutput, speed + 0.15);
+            CommandBase.armLift.armMotor2.set(ControlMode.PercentOutput, speed + 0.15);
+            CommandBase.armLift.armPID = 0;
+        } else {
+            CommandBase.armLift.positionPIDArm(armLift.armPID);
         }
+        
+        CommandBase.armLift.positionPIDLift(armLift.liftPID + 2000 - 2000 * SubsystemJoystick.axis_j_Slider.get());
     }
 
     protected boolean isDone(){

@@ -13,9 +13,9 @@ public class CommandHatchMotor extends Command5800 {
     
     protected void execute(){
         if (!status){
-            CommandBase.intake.hatchMotor(0.9);
+            CommandBase.intake.hatchMotor(0.8);
         } else {
-            CommandBase.intake.hatchMotor(-0.5);
+            CommandBase.intake.hatchMotor(-0.8);
         }
     }
     

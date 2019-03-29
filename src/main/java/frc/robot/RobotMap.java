@@ -9,10 +9,10 @@ package frc.robot;
 public class RobotMap {
 	/* PWMs (0 - 9) */
 	public static final int 
-	DRIVE_MOTOR_FR_ID = 2,
-	DRIVE_MOTOR_FL_ID = 0, 
-	DRIVE_MOTOR_RR_ID = 3, 
-	DRIVE_MOTOR_RL_ID = 1,
+	DRIVE_MOTOR_FR_ID = 0,
+	DRIVE_MOTOR_RR_ID = 1, 
+	DRIVE_MOTOR_FL_ID = 2, 
+	DRIVE_MOTOR_RL_ID = 3,
 	CARGO_MOTOR_LEFT_ID = 4,
 	CARGO_MOTOR_RIGHT_ID = 5,
 	HATCH_MOTOR_ID = 6;

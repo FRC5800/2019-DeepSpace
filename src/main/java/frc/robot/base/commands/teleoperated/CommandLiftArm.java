@@ -17,7 +17,7 @@ public class CommandLiftArm extends Command5800{
     }
 
     protected void execute(){
-        CommandBase.armLift.positionPIDLift(this.lift);
+        CommandBase.armLift.liftPID = this.lift;
         timer();
     }
     
@@ -33,7 +33,7 @@ public class CommandLiftArm extends Command5800{
     
     protected void onCompletion(){
         if (!CommandBase.armLift.status){
-            CommandBase.armLift.positionPIDArm(this.arm);
+            CommandBase.armLift.armPID = this.arm;
         }
         delay = 0;
     }

@@ -1,6 +1,7 @@
 package frc.robot.base.commands.generic;
 
 import frc.robot.base.commands.CommandBase;
+import frc.robot.base.subsystems.SubsystemJoystick;
 import frc.robot.base.util.Converter;
 import frc.robot.superclasses.Command5800;
 
@@ -20,9 +21,14 @@ public class CommandUpdateSensors extends Command5800 {
 				Converter.convertEncoder(CommandBase.sensors.getChassiSpeed('L'), 'P'));
 		SmartDashboard.putNumber("Distance Encoder R",
 				Converter.convertEncoder(CommandBase.sensors.getChassiPulses('R'), 'P'));
+		SmartDashboard.putNumber("Gear Right",CommandBase.driver.gearRight.get());
+		SmartDashboard.putNumber("Gear Left",CommandBase.driver.gearLeft.get());
 		SmartDashboard.putNumber("Speed Encoder R",
 				Converter.convertEncoder(CommandBase.sensors.getChassiSpeed('R'), 'P'));
 		SmartDashboard.putBoolean("Speed", CommandBase.armLift.armMotor.getSelectedSensorVelocity() < 5);
+		SmartDashboard.putNumber("Arm Motor", CommandBase.armLift.armMotor.getBusVoltage());
+            CommandBase.armLift.positionPIDArm(armLift.armPID + 200 * SubsystemJoystick.axis_j_Slider.get());
+			SmartDashboard.putNumber("Slider", SubsystemJoystick.axis_j_Slider.get());
 	}
 
 	@Override

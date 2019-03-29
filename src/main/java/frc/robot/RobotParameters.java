@@ -22,5 +22,5 @@ public class RobotParameters {
 	public static Gains angleGains = new Gains(0.5, 0, 0, 0);
 
 	public static Gains armGains = new Gains(3.6, 0.000018, 30, 0);
-	public static Gains liftGains = new Gains(6.6, 0.000022, 0.33, 0);
+	public static Gains liftGains = new Gains(0.13, 0.000034, 0.9, 0);
 }
