@@ -13,6 +13,11 @@ public class CommandUpdateSensors extends Command5800 {
 	}
 
 	@Override
+	public void onStart(){
+		SmartDashboard.putNumber("Driver Modifier", 1);
+	}
+
+	@Override
 	protected void execute() {
 		SmartDashboard.putNumber("Gyro", CommandBase.sensors.getChassiAngle());
 		SmartDashboard.putNumber("Distance Encoder L",
@@ -28,7 +33,7 @@ public class CommandUpdateSensors extends Command5800 {
 		SmartDashboard.putBoolean("Speed", CommandBase.armLift.armMotor.getSelectedSensorVelocity() < 5);
 		SmartDashboard.putNumber("Arm Motor", CommandBase.armLift.armMotor.getBusVoltage());
             CommandBase.armLift.positionPIDArm(armLift.armPID + 200 * SubsystemJoystick.axis_j_Slider.get());
-			SmartDashboard.putNumber("Slider", SubsystemJoystick.axis_j_Slider.get());
+		CommandBase.driver.driverModifier = SmartDashboard.getNumber("Driver Modifier", 1);
 	}
 
 	@Override

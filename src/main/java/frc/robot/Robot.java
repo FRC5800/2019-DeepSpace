@@ -2,7 +2,7 @@ package frc.robot;
 
 import frc.robot.base.commands.CommandBase;
 import frc.robot.base.commands.autonomous.Autonomous;
-
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -18,26 +18,30 @@ public class Robot extends TimedRobot {
 		CommandBase.init(); // This initializes all subsystems
 		CommandBase.sensors.init();
 		SmartDashboard.putNumber("Autonomous Version", 0);
+		CameraServer.getInstance().startAutomaticCapture();
 	}
 
 	/**
 	 * This function is called when the autonomous is started
 	 */
 	public void autonomousInit() {
-		/* This sets the command used to begin the autonomous sequence */
+		/*/* This sets the command used to begin the autonomous sequence 
 		int av = (int) SmartDashboard.getNumber("Autonomous Version", 1);
 		SmartDashboard.putNumber("Autonomous Version", av);
-		/* This starts the autonomous sequence. */
+		/* This starts the autonomous sequence. 
 		CommandBase.sensors.reset();
 		Autonomous.autonomous[av].start();
+		*/
+		this.teleopInit();
 	}
 
 	/**
 	 * This function is called periodically during autonomous.
 	 */
 	public void autonomousPeriodic() {
-		Scheduler.getInstance().run();
-		isAuto = isAutonomous();
+		//Scheduler.getInstance().run();
+		//isAuto = isAutonomous();
+		this.teleopPeriodic();
 	}
 
 	/**

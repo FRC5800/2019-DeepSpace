@@ -10,15 +10,9 @@ public class OI {
 		//Autonomous.initAutonomous();
 	
 		CommandBase.joystick.whenPressed(SubsystemJoystick.j_Thumb, new CommandResetSensor());
-		CommandBase.joystick.whenPressed(SubsystemJoystick.j_Eight, new CommandLiftArm(200, 0)); //inital position and hatch1
-		CommandBase.joystick.whenPressed(SubsystemJoystick.j_Ten, new CommandArmLift(1000, 17000)); //hatch2
-		CommandBase.joystick.whenPressed(SubsystemJoystick.j_Twelve, new CommandArmLift(3380, 15400)); //hatch3
-		CommandBase.joystick.whenPressed(SubsystemJoystick.j_Three, new CommandLiftArm(0, 0)); //cargo0
-		CommandBase.joystick.whenPressed(SubsystemJoystick.j_Four, new CommandArmLift(1250, 0)); //cargo1
-		CommandBase.joystick.whenPressed(SubsystemJoystick.j_Five, new CommandArmLift(1590, 15500)); //cargo2
-		CommandBase.joystick.whenPressed(SubsystemJoystick.j_Six, new CommandArmLift(3380, 15400)); //cargo3
-		CommandBase.joystick.whenPressed(SubsystemJoystick.j_Eleven, new CommandManualArm()); //manche 
-		CommandBase.joystick.whenHeld(SubsystemJoystick.j_Fire, new CommandIntake(false, false));
+		CommandBase.joystick.whenPressed(SubsystemJoystick.j_Three, new CommandLift(0));
+		CommandBase.joystick.whenPressed(SubsystemJoystick.j_Four, new CommandLift(15000));
+		CommandBase.joystick.whenPressed(SubsystemJoystick.j_Five, new CommandLift(17000));
 		CommandBase.joystick.whenHeld(SubsystemJoystick.d_LB, new CommandHatchMotor(true));
 		CommandBase.joystick.whenHeld(SubsystemJoystick.d_LT, new CommandIntake(true, true));
 		CommandBase.joystick.whenHeld(SubsystemJoystick.d_RB, new CommandHatchMotor(false));

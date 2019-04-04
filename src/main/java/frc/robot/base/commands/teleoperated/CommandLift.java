@@ -7,16 +7,16 @@ public class CommandLift extends Command5800 {
     double dis;
     
     public CommandLift(double _dis){
-        super(CommandBase.armLift);
+        super(null);
         dis = _dis;
     }
 
     protected void execute(){
-        CommandBase.armLift.positionPIDLift(dis);
+        CommandBase.armLift.liftPID = dis;
     }
 
     protected boolean isDone(){
-        return false;
+        return true;
     }
 
     protected void onCompletion(){

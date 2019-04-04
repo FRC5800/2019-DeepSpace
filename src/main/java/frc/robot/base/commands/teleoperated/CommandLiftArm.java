@@ -7,7 +7,7 @@ public class CommandLiftArm extends Command5800{
 
     double arm, lift, delay = 0;
     public CommandLiftArm(double _arm, double _lift){
-        super(CommandBase.armLift);
+        super(null);
         this.arm = _arm;
         this.lift = _lift;
     }

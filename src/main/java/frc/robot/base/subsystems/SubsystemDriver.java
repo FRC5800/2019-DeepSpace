@@ -15,6 +15,8 @@ import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.PIDController;
 
 public class SubsystemDriver extends Subsystem5800 {
+	public double driverModifier;	
+
 	private VictorSP motorFrontLeft = new VictorSP(DRIVE_MOTOR_FL_ID);
 	private VictorSP motorRearLeft = new VictorSP(DRIVE_MOTOR_RL_ID);
 	private VictorSP motorFrontRight = new VictorSP(DRIVE_MOTOR_FR_ID);
