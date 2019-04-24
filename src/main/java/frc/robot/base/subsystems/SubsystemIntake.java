@@ -21,6 +21,7 @@ public class SubsystemIntake extends Subsystem5800{
 
   public void onInit(){
     this.hatchIntakeMotor.set(0.15);
+    this.cargoIntakeSet(0.15);
   }
 
   public void cargoIntakeSet(double speed){

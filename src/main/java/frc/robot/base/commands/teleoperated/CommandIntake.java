@@ -1,6 +1,7 @@
 package frc.robot.base.commands.teleoperated;
 
 import frc.robot.base.commands.CommandBase;
+import frc.robot.base.commands.teleoperated.CommandHatchMotor;
 import frc.robot.superclasses.*;
 
 public class CommandIntake extends Command5800 {
@@ -10,7 +11,7 @@ public class CommandIntake extends Command5800 {
   public CommandIntake(boolean _st, boolean joy_st){
       super(CommandBase.intake);
       status = _st;
-      joyStatus = joy_st;  
+      joyStatus = joy_st;
   }
 
   protected void onStart(){}
@@ -25,6 +26,7 @@ public class CommandIntake extends Command5800 {
         }
       } else {
         CommandBase.intake.hatchIntake(true);
+        CommandBase.intake.cargoIntakeSet(0);
       }
     }
       
@@ -36,7 +38,11 @@ public class CommandIntake extends Command5800 {
   }
 
   protected void onCompletion(){
-    CommandBase.intake.cargoIntakeSet(0.0);
+    if (this.status){
+      CommandBase.intake.cargoIntakeSet(0.15);
+    } else {
+      CommandBase.intake.cargoIntakeSet(0);
+    }
     CommandBase.intake.hatchIntake(false);
   }
 }

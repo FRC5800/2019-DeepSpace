@@ -27,7 +27,6 @@ public class SubsystemArmLift extends Subsystem5800{
         this.setGains(RobotParameters.liftGains, liftMotor);
 
         //liftMotor.configClosedloopRamp(0.1);
-        armMotor.configClosedloopRamp(0.1);
 
         liftMotor.setSensorPhase(true);
 
@@ -38,9 +37,6 @@ public class SubsystemArmLift extends Subsystem5800{
         liftMotor.configPeakOutputReverse(-0.5);
         armMotor.configPeakOutputForward(1);
         armMotor.configPeakOutputReverse(-0.5);
-
-        armMotor.setSelectedSensorPosition(0);
-        //liftMotor.setSelectedSensorPosition(0);
     }
 
     public void setGains(Gains _gains, TalonSRX _talon){
@@ -76,6 +72,14 @@ public class SubsystemArmLift extends Subsystem5800{
         } else {
             return false;
         }
+    }
+
+    public void armSet(double _a, double _ramp){
+        double gA = armMotor.getMotorOutputPercent();
+		double a = Math.max(gA - _ramp, Math.min(gA + _ramp, _a));
+		
+        armMotor.set(ControlMode.PercentOutput, a);
+        armMotor2.follow(armMotor);
     }
 
     public boolean liftOnTarget(double _t){

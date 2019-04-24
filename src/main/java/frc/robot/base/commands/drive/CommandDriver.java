@@ -19,7 +19,7 @@ public class CommandDriver extends Command5800 {
 		this.arcadeRotation = SubsystemJoystick.axis_d_RX.get();
 
 		if (CommandBase.armLift.liftMotor.getSelectedSensorPosition() >= 10000 && CommandBase.armLift.armMotor.getSelectedSensorPosition() >= 3000){
-			this.driverLimit = 0.4;
+			this.driverLimit = 0.35;
 		} else {
 			this.driverLimit = 0.7;
 		}

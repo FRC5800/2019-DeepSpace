@@ -16,8 +16,7 @@ public class CommandArm extends Command5800 {
         CommandBase.armLift.liftMotor.set(ControlMode.Position, CommandBase.armLift.liftPID + 1500 * (1 - SubsystemJoystick.axis_j_Slider.get()));
 
         this.speed = SubsystemJoystick.axis_j_Y.get();
-        CommandBase.armLift.armMotor.set(ControlMode.PercentOutput, speed + 0.15);
-        CommandBase.armLift.armMotor2.set(ControlMode.PercentOutput, speed + 0.15);
+        CommandBase.armLift.armSet(this.speed + 0.12, 0.05);
     }
 
     protected boolean isDone(){
