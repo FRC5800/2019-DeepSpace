@@ -30,11 +30,6 @@ public class CommandUpdateSensors extends Command5800 {
 		SmartDashboard.putNumber("Gear Left",CommandBase.driver.gearLeft.get());
 		SmartDashboard.putNumber("Speed Encoder R",
 				Converter.convertEncoder(CommandBase.sensors.getChassiSpeed('R'), 'P'));
-		SmartDashboard.putBoolean("Speed", CommandBase.armLift.armMotor.getSelectedSensorVelocity() < 5);
-		SmartDashboard.putNumber("Arm Motor", CommandBase.armLift.armMotor.getMotorOutputPercent());
-		SmartDashboard.putNumber("Arm Motor2", CommandBase.armLift.armMotor2.getMotorOutputPercent());
-		SmartDashboard.putNumber("Arm Motor V", CommandBase.armLift.armMotor2.getMotorOutputVoltage());
-		SmartDashboard.putNumber("Arm Motor V2", CommandBase.armLift.armMotor2.getMotorOutputVoltage());
 		SmartDashboard.putNumber("J", SubsystemJoystick.axis_j_Y.get());
 	}
 

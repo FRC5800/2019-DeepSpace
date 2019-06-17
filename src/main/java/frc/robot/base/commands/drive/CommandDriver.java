@@ -17,12 +17,8 @@ public class CommandDriver extends Command5800 {
 	protected void execute() {
 		this.arcadeSpeed = - SubsystemJoystick.axis_d_LY.get();
 		this.arcadeRotation = SubsystemJoystick.axis_d_RX.get();
-
-		if (CommandBase.armLift.liftMotor.getSelectedSensorPosition() >= 10000 && CommandBase.armLift.armMotor.getSelectedSensorPosition() >= 3000){
-			this.driverLimit = 0.35;
-		} else {
-			this.driverLimit = 0.7;
-		}
+		//this.arcadeSpeed = -SubsystemJoystick.axis_j_Y.get();
+		//this.arcadeRotation = SubsystemJoystick.axis_j_X.get();
 
 		this.arcadeDrive(this.arcadeSpeed, this.arcadeRotation);
 	}
@@ -34,7 +30,7 @@ public class CommandDriver extends Command5800 {
 		double modifier = minR + difR * Math.pow(1 - Math.abs(speed), 2);
 		double rate = Math.pow(rotation, 3) * modifier;
 
-		CommandBase.driver.tankDrive(this.driverLimit * (speed - rate), 0.95 * this.driverLimit * (speed + rate), 0.05);
+		CommandBase.driver.tankDrive((speed - rate), 0.7 * (speed + rate), 0.05);
 
 	}
 	protected void onCompletion() {

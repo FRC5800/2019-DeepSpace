@@ -24,14 +24,14 @@ public abstract class CommandBase extends Command {
 	public static SubsystemSensors sensors = new SubsystemSensors();
 	public static SubsystemJoystick joystick = new SubsystemJoystick();
 	public static SubsystemDriver driver = new SubsystemDriver();
-	public static SubsystemArmLift armLift = new SubsystemArmLift();
+	public static SubsystemLift lift = new SubsystemLift();
 	public static SubsystemIntake intake = new SubsystemIntake();
 
 	public static void init() {
 		sensors.setDefCommand(new CommandUpdateSensors());
 		driver.setDefCommand(new CommandDriver());
-		armLift.setDefCommand(new CommandArm());
-
+		lift.setDefCommand(new CommandLift());
+		
 		// Don't move or change this. EVER.
 		oi = new OI();
 

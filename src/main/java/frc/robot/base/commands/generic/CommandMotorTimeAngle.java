@@ -6,11 +6,11 @@ import frc.robot.superclasses.Subsystem5800;
 
 import edu.wpi.first.wpilibj.VictorSP;
 
-public class CommandMotorTime extends Command5800 {
+public class CommandMotorTimeAngle extends Command5800 {
 	public VictorSP motor;
 	public double speed;
 
-	public CommandMotorTime(Subsystem5800 requiredSubsystem,  double speed, double time) {
+	public CommandMotorTimeAngle(Subsystem5800 requiredSubsystem,  double speed, double time) {
 		super(requiredSubsystem);
 		setTimeout(time);
 		this.speed = speed;
@@ -18,7 +18,7 @@ public class CommandMotorTime extends Command5800 {
 
 	@Override
 	protected void execute() {
-		CommandBase.driver.tankDrive(this.speed, this.speed);
+		CommandBase.driver.tankDrive(this.speed, -this.speed);
 	}
 
 	@Override
